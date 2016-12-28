@@ -9,30 +9,95 @@ namespace skeeks\cms\shopCartItemsWidget;
 use yii\widgets\ListView;
 
 /**
- * Class ShopCartStepsWidget
- *
- * @package skeeks\cms\rpViewWidget
+ * Class ShopCartItemsListWidget
+ * @package skeeks\cms\shopCartItemsWidget
  */
 class ShopCartItemsListWidget extends ListView
 {
+    /**
+     * @var string
+     */
+    public $layout = "{header}\n{items}\n{footer}";
+
     public function init()
     {
         parent::init();
         self::registerTranslations();
     }
 
-    public $viewFile = 'default';
+    public $pager = [
+        'defaultPageSize' => 100,
+        'pageSizeLimit' => [1, 100]
+    ];
 
-    public $options = [];
     /**
-     * Подготовка данных для шаблона
-     * @return $this
+     * @var array
      */
-    public function run()
+    public $options = [
+        'class' => 'cartContent clearfix'
+    ];
+
+    public $itemOptions = [
+        'tag' => false
+    ];
+
+    /**
+     * Header list view
+     * @var string
+     */
+    public $headerView  = '@skeeks/cms/shopCartItemsWidget/views/items-list-header';
+    /**
+     * Footer list view
+     * @var string
+     */
+    public $footerView  = '@skeeks/cms/shopCartItemsWidget/views/items-list-footer';
+
+    /**
+     * @var string
+     */
+    public $itemView        = '@skeeks/cms/shopCartItemsWidget/views/items-list-item';
+
+    /**
+     * @param string $name
+     * @return bool|string
+     */
+    public function renderSection($name)
     {
-        return $this->render($this->viewFile);
+        switch ($name) {
+            case '{header}':
+                return $this->renderHeader();
+            case '{footer}':
+                return $this->renderFooter();
+            default:
+                return parent::renderSection($name);
+        }
     }
 
+    /**
+     * @return string
+     */
+    public function renderHeader()
+    {
+        if ($this->headerView)
+        {
+            return $this->view->render($this->headerView);
+        }
+
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    public function renderFooter()
+    {
+        if ($this->footerView)
+        {
+            return $this->view->render($this->footerView);
+        }
+
+        return '';
+    }
 
     static public $isRegisteredTranslations = false;
 
