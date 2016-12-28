@@ -25,7 +25,12 @@ Example
 
 <?= \skeeks\cms\shopCartItemsWidget\ShopCartItemsListWidget::widget([
     'dataProvider' => new \yii\data\ActiveDataProvider([
-        'query' => \Yii::$app->shop->shopFuser->getShopBaskets()
+        'query' => \Yii::$app->shop->shopFuser->getShopBaskets(),
+        'pagination' =>
+        [
+            'defaultPageSize' => 100,
+            'pageSizeLimit' => [1, 100],
+        ]
     ]),
     //'headerView' => '@app/view/.../header',
     //'footerView' => '@app/view/.../footer',

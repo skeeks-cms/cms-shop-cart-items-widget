@@ -17,7 +17,7 @@ class ShopCartItemsListWidget extends ListView
     /**
      * @var string
      */
-    public $layout = "{header}\n{items}\n{footer}";
+    public $layout = "{header}\n{items}\n{pager}{footer}";
 
     public function init()
     {
@@ -25,9 +25,9 @@ class ShopCartItemsListWidget extends ListView
         self::registerTranslations();
     }
 
-    public $pager = [
-        'defaultPageSize' => 100,
-        'pageSizeLimit' => [1, 100]
+    public $pagination = [
+        'defaultPageSize'   => 1,
+        'pageSizeLimit'     => [1, 100]
     ];
 
     /**
