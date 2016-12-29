@@ -30,20 +30,14 @@ $widget     = $this->context;
             <? endforeach; ?>
         <? endif; ?>
     </a>
-    <a href="#" class="remove_item" data-toggle="tooltip"
-       onclick="sx.Shop.removeBasket('<?= $model->id; ?>'); return false;"
-       title="<?= \Yii::t('skeeks/shop-cart-items-widget', 'Remove this item'); ?>"><i class="glyphicon glyphicon-remove"></i></a>
 
     <div class="total_price">
         <span><?= \Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
     </div>
     <div class="qty">
-        <input type="number" value="<?= round($model->quantity); ?>" name="qty"
-               class="sx-basket-quantity" maxlength="3" max="999" min="1"
-               data-basket_id="<?= $model->id; ?>"/>
+        <span><?= round($model->quantity); ?></span>
         &times;
         <? if ($model->moneyOriginal->getAmount() == $model->money->getAmount()) : ?>
-
             <?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?>
         <? else : ?>
             <span
