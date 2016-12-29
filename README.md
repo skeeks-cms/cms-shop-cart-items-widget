@@ -40,6 +40,45 @@ Example
 ```
 
 
+Example cart items
+----------
+
+```php
+
+<?= \skeeks\cms\shopCartItemsWidget\ShopCartItemsListWidget::widget([
+    'dataProvider' => new \yii\data\ActiveDataProvider([
+        'query' => $model->getShopBaskets(),
+        'pagination' =>
+        [
+            'defaultPageSize' => 100,
+            'pageSizeLimit' => [1, 100],
+        ],
+    ]),
+]); ?>
+
+```
+
+Example order items
+----------
+
+```php
+
+<?= \skeeks\cms\shopCartItemsWidget\ShopCartItemsListWidget::widget([
+    'dataProvider' => new \yii\data\ActiveDataProvider([
+        'query' => $model->getShopBaskets(),
+        'pagination' =>
+        [
+            'defaultPageSize' => 100,
+            'pageSizeLimit' => [1, 100],
+        ],
+    ]),
+    'footerView'    => false,
+    'itemView'      => '@skeeks/cms/shopCartItemsWidget/views/items-list-order-item',
+]); ?>
+
+```
+
+
 ##Links
 * [Web site](http://cms.skeeks.com)
 * [Author](http://skeeks.com)
