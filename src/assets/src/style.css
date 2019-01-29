@@ -95,3 +95,7 @@
 		width:50%;
 	}
 }
+
+.line-through {
+    text-decoration: line-through;
+}

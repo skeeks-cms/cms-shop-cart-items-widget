@@ -17,6 +17,7 @@ $widget     = $this->context;
                      \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
                          'h' => 100,
                          'w' => 100,
+                         'm' => \Imagine\Image\ManipulatorInterface::THUMBNAIL_INSET,
                      ]))
                  ) ?>" class="sx-lazy"
                  alt="<?= $model->name; ?> title="<?= $model->name; ?> width="80"/>
