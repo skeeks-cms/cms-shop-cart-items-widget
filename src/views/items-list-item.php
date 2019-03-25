@@ -36,10 +36,9 @@ $widget     = $this->context;
     </a>
     <a href="#" class="remove_item" data-toggle="tooltip"
        onclick="sx.Shop.removeBasket('<?= $model->id; ?>'); return false;"
-       title="<?= \Yii::t('skeeks/shop-cart-items-widget', 'Remove this item'); ?>"><i class="glyphicon glyphicon-remove"></i></a>
-
+       title="<?= \Yii::t('skeeks/shop-cart-items-widget', 'Remove this item'); ?>"><i class="fa fa-remove"></i></a>
     <div class="total_price">
-        <span><?= \Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
+        <span><?= $model->money->multiply($model->quantity); ?></span>
     </div>
     <div class="qty">
         <input type="number" value="<?= round($model->quantity); ?>" name="qty"
@@ -47,12 +46,11 @@ $widget     = $this->context;
                data-basket_id="<?= $model->id; ?>"/>
         &times;
         <? if ($model->moneyOriginal->getAmount() == $model->money->getAmount()) : ?>
-
-            <?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?>
+            <?= $model->moneyOriginal; ?>
         <? else : ?>
             <span
-                class="line-through nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
-            <?= \Yii::$app->money->convertAndFormat($model->money); ?>
+                class="line-through nopadding-left"><?= $model->moneyOriginal; ?></span>
+            <?= $model->money; ?>
         <? endif; ?>
     </div>
     <div class="clearfix"></div>
