@@ -25,7 +25,7 @@ $widget     = $this->context;
     </div>
     <a href="<?= $model->url; ?>" class="product_name" data-pjax="0">
         <span><?= $model->name; ?></span>
-        <? if ($model->product->cmsContentElement->parent_content_element_id && $model->product->cmsContentElement->name != $model->product->cmsContentElement->parentContentElement->name) : ?>
+        <? if ($model->product && $model->product->cmsContentElement && $model->product->cmsContentElement->parent_content_element_id && $model->product->cmsContentElement->name != $model->product->cmsContentElement->parentContentElement->name) : ?>
             <small><?= $model->product->cmsContentElement->name; ?></small>
         <? endif; ?>
         <? if ($model->shopBasketProps) : ?>
