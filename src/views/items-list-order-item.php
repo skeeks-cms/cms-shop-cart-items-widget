@@ -11,7 +11,7 @@
 $widget     = $this->context;
 ?>
 <div class="item">
-    <div class="cart_img pull-left width-100 padding-10 text-left">
+    <div class="cart_img float-left width-100 padding-10 text-left">
         <a href="<?= $model->url; ?>">
             <img src="<?= \skeeks\cms\helpers\Image::getSrc(
                      \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([

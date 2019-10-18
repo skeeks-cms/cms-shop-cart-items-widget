@@ -11,8 +11,8 @@
 $widget     = $this->context;
 ?>
 <button onclick="sx.Shop.clearCart(); return false;"
-        class="btn btn-default btn-sm margin-top-20 margin-right-10 pull-left sx-btn-clear-cart g-mt-20"><i
-        class="fa fa-remove"></i> <?= \Yii::t('skeeks/shop-cart-items-widget', 'Clear cart'); ?>
+        class="btn btn-default btn-sm margin-top-20 margin-right-10 float-left sx-btn-clear-cart g-mt-20"><i
+        class="fas fa-trash-alt"></i> <?= \Yii::t('skeeks/shop-cart-items-widget', 'Clear cart'); ?>
 </button>
 <!-- /update cart -->
 <div class="clearfix"></div>
