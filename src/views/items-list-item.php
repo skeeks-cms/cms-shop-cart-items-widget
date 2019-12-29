@@ -36,7 +36,7 @@ $widget     = $this->context;
     </a>
     <a href="#" class="remove_item" data-toggle="tooltip"
        onclick="sx.Shop.removeBasket('<?= $model->id; ?>'); return false;"
-       title="<?= \Yii::t('skeeks/shop-cart-items-widget', 'Remove this item'); ?>"><i class="fa fa-remove"></i></a>
+       title="<?= \Yii::t('skeeks/shop-cart-items-widget', 'Remove this item'); ?>"><i class="far fa-trash-alt"></i></a>
     <div class="total_price">
         <span><?= $model->money->multiply($model->quantity); ?></span>
     </div>
