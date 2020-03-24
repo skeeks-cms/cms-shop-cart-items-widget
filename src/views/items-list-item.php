@@ -10,7 +10,7 @@
 /* @var $model \skeeks\cms\shop\models\ShopBasket */
 $widget     = $this->context;
 ?>
-<div class="item">
+<div class="item g-bg-gray-light-v5">
     <div class="cart_img float-left width-100 padding-10 text-left">
         <a href="<?= $model->url; ?>">
             <img src="<?= \skeeks\cms\helpers\Image::getSrc(

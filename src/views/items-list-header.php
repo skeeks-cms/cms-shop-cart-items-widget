@@ -10,7 +10,7 @@
 \skeeks\cms\shopCartItemsWidget\assets\ShopCartItemsListWidgetAsset::register($this);
 $widget     = $this->context;
 ?>
-<div class="item head clearfix">
+<div class="item head clearfix g-bg-gray-light-v5">
     <span class="cart_img"></span>
     <span class="product_name size-13 bold"><?= \Yii::t('skeeks/shop-cart-items-widget', 'Product'); ?></span>
     <span class="remove_item size-13 bold"></span>
