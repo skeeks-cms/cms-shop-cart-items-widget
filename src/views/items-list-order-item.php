@@ -8,17 +8,17 @@
 /* @var $this yii\web\View */
 /* @var $widget \skeeks\cms\shopCartItemsWidget\ShopCartItemsListWidget */
 /* @var $model \skeeks\cms\shop\models\ShopBasket */
-$widget     = $this->context;
+$widget = $this->context;
 ?>
 <div class="item">
-    <div class="cart_img float-left width-100 padding-10 text-left">
+    <div class="cart_img float-left width-100 text-left" style="padding: 10px;">
         <a href="<?= $model->url; ?>">
             <img src="<?= \skeeks\cms\helpers\Image::getSrc(
-                     \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
-                         'h' => 100,
-                         'w' => 100,
-                     ]))
-                 ) ?>" class="sx-lazy"
+                \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
+                    'h' => 100,
+                    'w' => 100,
+                ]))
+            ) ?>" class="sx-lazy"
                  alt="<?= $model->name; ?> title="<?= $model->name; ?> width="80"/>
         </a>
     </div>
@@ -41,7 +41,7 @@ $widget     = $this->context;
             <?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?>
         <? else : ?>
             <span
-                class="line-through nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
+                    class="line-through nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
             <?= \Yii::$app->money->convertAndFormat($model->money); ?>
         <? endif; ?>
     </div>
