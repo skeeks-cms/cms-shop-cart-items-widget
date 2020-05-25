@@ -8,18 +8,18 @@
 /* @var $this yii\web\View */
 /* @var $widget \skeeks\cms\shopCartItemsWidget\ShopCartItemsListWidget */
 /* @var $model \skeeks\cms\shop\models\ShopBasket */
-$widget     = $this->context;
+$widget = $this->context;
 ?>
 <div class="item g-bg-gray-light-v5">
     <div class="cart_img float-left width-100 padding-10 text-left">
         <a href="<?= $model->url; ?>">
             <img src="<?= \skeeks\cms\helpers\Image::getSrc(
-                     \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
-                         'h' => 100,
-                         'w' => 100,
-                         'm' => \Imagine\Image\ManipulatorInterface::THUMBNAIL_INSET,
-                     ]))
-                 ) ?>" class="sx-lazy"
+                \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
+                    'h' => 100,
+                    'w' => 100,
+                    'm' => \Imagine\Image\ManipulatorInterface::THUMBNAIL_INSET,
+                ]))
+            ) ?>" class="sx-lazy"
                  alt="<?= $model->name; ?> title="<?= $model->name; ?> width="80"/>
         </a>
     </div>
@@ -49,7 +49,7 @@ $widget     = $this->context;
             <?= $model->moneyOriginal; ?>
         <? else : ?>
             <span
-                class="line-through nopadding-left"><?= $model->moneyOriginal; ?></span>
+                    class="line-through nopadding-left"><?= $model->moneyOriginal; ?></span>
             <?= $model->money; ?>
         <? endif; ?>
     </div>

@@ -18,12 +18,17 @@
 .cartContent .item.head {
 	border-bottom:0;
 }
+.cartContent .cart_img {
+    padding: 10px;
+}
+
 .cartContent .product_name {
 	float:left;
 	width:35%;
 	padding:10px;
 	text-decoration:none;
 	min-height:60px;
+    line-height: 1.1;
 }
 	.cartContent .product_name:hover>span {
 		text-decoration:underline;
