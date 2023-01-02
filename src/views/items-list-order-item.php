@@ -32,17 +32,27 @@ $widget = $this->context;
     </a>
 
     <div class="total_price">
-        <span><?= \Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
+        <? if ($model->moneyOriginal->getAmount() == $model->money->getAmount()) : ?>
+            <span><?= \Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
+        <? else : ?>
+
+            <span class="sx-old-price nopadding-left"><?=\Yii::$app->money->convertAndFormat($model->moneyOriginal->multiply($model->quantity)); ?></span>
+            <?=\Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?>
+
+        <? endif; ?>
+
+
     </div>
     <div class="qty">
-        <span><?= round($model->quantity); ?></span>
+        <span><?= (float) $model->quantity; ?></span>
         &times;
         <? if ($model->moneyOriginal->getAmount() == $model->money->getAmount()) : ?>
             <?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?>
         <? else : ?>
-            <span
-                    class="line-through nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
+
+            <span class="sx-old-price nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
             <?= \Yii::$app->money->convertAndFormat($model->money); ?>
+
         <? endif; ?>
     </div>
     <div class="clearfix"></div>
