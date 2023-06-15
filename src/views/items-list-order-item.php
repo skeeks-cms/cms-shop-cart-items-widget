@@ -35,9 +35,8 @@ $widget = $this->context;
         <? if ($model->moneyOriginal->getAmount() == $model->money->getAmount()) : ?>
             <span><?= \Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
         <? else : ?>
-
-            <span class="sx-old-price nopadding-left"><?=\Yii::$app->money->convertAndFormat($model->moneyOriginal->multiply($model->quantity)); ?></span>
-            <?=\Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?>
+            <span class="sx-old-price nopadding-left"><?=\Yii::$app->money->convertAndFormat($model->money->multiply($model->quantity)); ?></span>
+            <?=\Yii::$app->money->convertAndFormat($model->moneyWithDiscount->multiply($model->quantity)); ?>
 
         <? endif; ?>
 
@@ -50,8 +49,8 @@ $widget = $this->context;
             <?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?>
         <? else : ?>
 
-            <span class="sx-old-price nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->moneyOriginal); ?></span>
-            <?= \Yii::$app->money->convertAndFormat($model->money); ?>
+            <span class="sx-old-price nopadding-left"><?= \Yii::$app->money->convertAndFormat($model->money); ?></span>
+            <?= \Yii::$app->money->convertAndFormat($model->moneyWithDiscount); ?>
 
         <? endif; ?>
     </div>
