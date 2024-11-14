@@ -13,13 +13,25 @@ $widget = $this->context;
 <div class="item">
     <div class="cart_img float-left width-100 text-left" style="padding: 10px;">
         <a href="<?= $model->url; ?>">
-            <img src="<?= \skeeks\cms\helpers\Image::getSrc(
+            <?
+            $preview = \Yii::$app->imaging->getPreview($model->image,
+                new \skeeks\cms\components\imaging\filters\Thumbnail([
+                    'w' => 150,
+                    'h' => 150,
+                    'm' => \Imagine\Image\ImageInterface::THUMBNAIL_OUTBOUND,
+                    'sx_preview' => \skeeks\cms\components\storage\SkeeksSuppliersCluster::IMAGE_PREVIEW_SMALL,
+                ])
+            );
+            ?>
+            <img src="<?= $preview->src; ?>" class="sx-lazy" alt="<?= $model->name; ?> title="<?= $model->name; ?> width="80"/>
+        
+            <!--<img src="<?/*= \skeeks\cms\helpers\Image::getSrc(
                 \Yii::$app->imaging->getImagingUrl($model->image ? $model->image->src : null, new \skeeks\cms\components\imaging\filters\Thumbnail([
                     'h' => 100,
                     'w' => 100,
                 ]))
-            ) ?>" class="sx-lazy"
-                 alt="<?= $model->name; ?> title="<?= $model->name; ?> width="80"/>
+            ) */?>" class="sx-lazy"
+                 alt="<?/*= $model->name; */?> title="<?/*= $model->name; */?> width="80"/>-->
         </a>
     </div>
     <a href="<?= $model->url; ?>" class="product_name" data-pjax="0">
